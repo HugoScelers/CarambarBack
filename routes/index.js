@@ -2,25 +2,6 @@ const express = require('express');
 const router = express.Router();
 const jokesController = require('../controller');
 
-
-/**
- * @swagger
- * components:
- *   schemas:
- *     Joke:
- *       type: object
- *       required:
- *         - id
- *         - joke
- *       properties:
- *         id:
- *           type: integer
- *           description: L'identifiant de la blague.
- *         joke:
- *           type: string
- *           description: Le contenu de la blague.
- */
-
 /**
  * @swagger
  * /jokes/random:
