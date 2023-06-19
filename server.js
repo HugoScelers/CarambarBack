@@ -1,7 +1,14 @@
 const express = require('express');
-const cors = require('cors'); // Importez le module cors
+const cors = require('cors');
 const app = express();
+
 const jokesRoutes = require('./routes');
+
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+
+// Configuration de Swagger
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Middleware pour parser les données JSON
 app.use(express.json());
@@ -17,7 +24,7 @@ app.use((req, res) => {
     res.status(404).sendFile(__dirname + '/view/404.html');
 });
 
-// Démarrer le serveur
+// Démarrage du serveur
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Serveur démarré sur le port ${PORT}`);

@@ -2,13 +2,76 @@ const express = require('express');
 const router = express.Router();
 const jokesController = require('../controller');
 
-// Route pour consulter une blague au hasard
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Joke:
+ *       type: object
+ *       required:
+ *         - id
+ *         - joke
+ *       properties:
+ *         id:
+ *           type: integer
+ *           description: L'identifiant de la blague.
+ *         joke:
+ *           type: string
+ *           description: Le contenu de la blague.
+ */
+
+/**
+ * @swagger
+ * /jokes/random:
+ *   get:
+ *     summary: Retourne une blague au hasard
+ *     responses:
+ *       200:
+ *         description: Une blague au hasard
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Joke'
+ */
 router.get('/jokes/random', jokesController.getRandomJoke);
 
-// Route pour consulter une blague par ID
+/**
+ * @swagger
+ * /jokes/{id}:
+ *   get:
+ *     summary: Retourne une blague par son ID
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: integer
+ *         required: true
+ *         description: ID de la blague
+ *     responses:
+ *       200:
+ *         description: Une blague par son ID
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Joke'
+ */
 router.get('/jokes/:id', jokesController.getJokeById);
 
-// Route pour consulter toutes les blagues
+/**
+ * @swagger
+ * /jokes:
+ *   get:
+ *     summary: Retourne toutes les blagues
+ *     responses:
+ *       200:
+ *         description: La liste de toutes les blagues
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Joke'
+ */
 router.get('/jokes', jokesController.getAllJokes);
 
 module.exports = router;

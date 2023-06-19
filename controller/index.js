@@ -1,14 +1,14 @@
-const jokes = require('../jokes.json');
+const Joke = require('../model/jokes');
 
 // Récupérer toutes les blagues
 const getAllJokes = (req, res) => {
-    res.json(jokes);
+    res.json(Joke.getAll());
 };
 
 // Récupérer une blague par ID
 const getJokeById = (req, res) => {
     const id = Number(req.params.id);
-    const joke = jokes.find((joke) => joke.id === id);
+    const joke = Joke.getById(id);
     if (joke) {
         res.json(joke);
     } else {
@@ -18,8 +18,7 @@ const getJokeById = (req, res) => {
 
 // Récupérer une blague au hasard
 const getRandomJoke = (req, res) => {
-    const randomIndex = Math.floor(Math.random() * jokes.length);
-    const joke = jokes[randomIndex];
+    const joke = Joke.getRandom();
     res.json(joke);
 };
 
