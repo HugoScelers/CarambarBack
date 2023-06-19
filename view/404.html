@@ -4,25 +4,37 @@
 <head>
     <title>Page non trouvée</title>
     <style>
+        /* Variables */
+        :root {
+            --color-secondary: #c22027;
+            --color-primary: #f2e62b;
+        }
+
         body {
-            background-color: #f2e62b;
+            background-color: #e10076;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .error-container {
+            background-color: var(--color-primary);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
         }
 
         h1 {
-            color: #c22027;
+            color: var(--color-secondary);
             font-size: 36px;
             text-align: center;
             margin-bottom: 20px;
         }
 
         p {
-            color: #c22027;
+            color: var(--color-secondary);
             font-size: 18px;
             text-align: center;
             margin: 0;
@@ -31,8 +43,10 @@
 </head>
 
 <body>
-    <h1>Erreur 404 - Page non trouvée</h1>
-    <p>Désolé, la page que vous recherchez est introuvable.</p>
+    <div class="error-container">
+        <h1>Erreur 404 - Page non trouvée</h1>
+        <p>Désolé, la page que vous recherchez est introuvable.</p>
+    </div>
 </body>
 
 </html>
