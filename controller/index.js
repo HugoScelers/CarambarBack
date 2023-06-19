@@ -1,4 +1,4 @@
-const Joke = require('../model/jokes');
+const Joke = require('../model/Joke');
 
 // Récupérer toutes les blagues
 const getAllJokes = (req, res) => {
