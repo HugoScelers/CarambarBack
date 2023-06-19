@@ -23,7 +23,6 @@ const getRandomJoke = (req, res) => {
     res.json(joke);
 };
 
-
 module.exports = {
     getAllJokes,
     getJokeById,
