@@ -1,4 +1,3 @@
-// controller/index.js
 const jokes = require('../jokes.json');
 
 // Récupérer toutes les blagues
