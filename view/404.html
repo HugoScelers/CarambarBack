@@ -4,10 +4,9 @@
 <head>
     <title>Page non trouvée</title>
     <style>
-        /* Variables */
         :root {
-            --color-secondary: #c22027;
-            --color-primary: #f2e62b;
+            --color-primary: #c22027;
+            --color-secondary: #f2e62b;
         }
 
         body {
@@ -17,8 +16,15 @@
             margin: 0;
         }
 
+        #carambarLogo {
+            display: block;
+            margin: 0 auto;
+            max-width: 200px;
+            width: 100%;
+
+        }
+
         .error-container {
-            background-color: var(--color-primary);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -26,27 +32,42 @@
             height: 100vh;
         }
 
-        h1 {
+        h1,h2 {
             color: var(--color-secondary);
             font-size: 36px;
             text-align: center;
             margin-bottom: 20px;
         }
 
-        p {
-            color: var(--color-secondary);
-            font-size: 18px;
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
             text-align: center;
-            margin: 0;
+            padding: 20px;
+            background-color: #aa085c;
+            color: #fff;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
         }
     </style>
 </head>
 
 <body>
+    <img src="/carambar.png" alt="Logo Carambar" id="carambarLogo">
     <div class="error-container">
         <h1>Erreur 404 - Page non trouvée</h1>
-        <p>Désolé, la page que vous recherchez est introuvable.</p>
+        <h2>Désolé, la page que vous recherchez est introuvable.</h2>
     </div>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2023 Blagues Carambar &amp; Co</p>
+        </div>
+    </footer>
 </body>
 
 </html>
