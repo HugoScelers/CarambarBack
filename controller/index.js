@@ -7,7 +7,7 @@ const getAllJokes = (req, res) => {
 
 // Récupérer une blague par ID
 const getJokeById = (req, res) => {
-    const id = req.params.id;
+    const id = Number(req.params.id);
     const joke = jokes.find((joke) => joke.id === id);
     if (joke) {
         res.json(joke);
@@ -22,6 +22,7 @@ const getRandomJoke = (req, res) => {
     const joke = jokes[randomIndex];
     res.json(joke);
 };
+
 
 module.exports = {
     getAllJokes,
